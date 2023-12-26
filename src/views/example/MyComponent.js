@@ -1,16 +1,22 @@
 import React from 'react'
 import ChildComponent from './ChildComponent'
+import AddComponent from './AddComponent'
 
 class MyComponent extends React.Component {
 
     state = {
-        firstName: '',
-        lastName: '',
         arrJobs: [
             { id: 'abcJob1', title: 'developer', salary: '500' },
             { id: 'abcJob2', title: 'project manager', salary: '1500' },
             { id: 'abcJob3', title: 'tester', salary: '700' }
         ]
+    }
+
+    addNewJob = (job) => {
+        this.setState({
+            arrJobs: [...this.state.arrJobs, job]
+        })
+
     }
 
     /* 
@@ -19,42 +25,13 @@ class MyComponent extends React.Component {
         - Để quy định class cho khối ta dùng className chứ k dùng class
     */
 
-    handleChnageFirstName = (event) => {
-        this.setState({
-            firstName: event.target.value
-        })
-    }
-
-    handleChnageLastName = (event) => {
-        this.setState({
-            lastName: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Check data input: ', this.state)
-    }
-
     render() {
         return (
             <>
-                <div>Hello HTML Form</div>
-                <form action="/action_page.php">
-                    <label for="fname">First name:</label>
-                    <br />
-                    <input type="text" value={this.state.firstName} onChange={(event) => this.handleChnageFirstName(event)} />
-                    <br />
-                    <label for="lname">Last name:</label><br />
-                    <input type="text" value={this.state.lastName} onChange={(event) => this.handleChnageLastName(event)} />
-                    <br />
-                    <br />
-                    <input type="submit" value="Submit"
-                        onClick={(event) => this.handleSubmit(event)} />
-                </form>
+                <AddComponent
+                    addNewJob={this.addNewJob}
+                />
                 <ChildComponent
-                    name={this.state.firstName}
-                    age={this.state.lastName}
                     arrJobs={this.state.arrJobs}
                 />
             </>
@@ -62,4 +39,4 @@ class MyComponent extends React.Component {
     }
 }
 
-export default MyComponent;
+export default MyComponent; 
