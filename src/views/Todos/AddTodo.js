@@ -22,7 +22,6 @@ class AddTodo extends React.Component {
         }
 
         this.props.addNewTodo(todo);
-
         this.setState({
             title: ''
         })
