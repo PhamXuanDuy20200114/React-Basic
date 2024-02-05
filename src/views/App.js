@@ -28,7 +28,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           {/* <MyComponent /> */}
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
             <Route path="/about" element={<MyComponent />} />
           </Routes>
