@@ -4,6 +4,7 @@ import MyComponent from './example/MyComponent.js';
 import ListTodo from './Todos/ListTodo.js';
 import Nav from './Nav/Nav.js';
 import Home from './example/Home.js';
+import ListUser from './Users/ListUser.js';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
             <Route path="/about" element={<MyComponent />} />
+            <Route path="/users" element={<ListUser />} />
           </Routes>
         </header>
         <ToastContainer
